@@ -37,7 +37,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidlibrary)
+    implementation(files("../libs/expandablefragment-debug.aar"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
