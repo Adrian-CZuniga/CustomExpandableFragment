@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ExpandableFragment</string>
+    <string name="icon_expanded">Icon expanded</string>
+    <string name="default_categories">Default categories</string>
+    <string name="icon">Icon</string>
+
+</resources>

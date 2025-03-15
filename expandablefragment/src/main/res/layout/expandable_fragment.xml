@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/data_fragment">
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="30dp"
+                android:scaleType="fitCenter"
+
+                android:contentDescription="@string/icon"
+                android:src="@drawable/baseline_image_not_supported_24"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/text_name_categories"
+                app:layout_constraintTop_toTopOf="parent"
+
+                android:id="@+id/icon_categories" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_categories"
+                android:textSize="22sp"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/icon_categories"
+                android:id="@+id/text_name_categories" />
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/icon_expanded"
+                android:src="@drawable/baseline_keyboard_arrow_up_24"
+                android:scaleType="fitCenter"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/icon_expanded" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/data_fragment"
+            android:id="@+id/fragment_container" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
