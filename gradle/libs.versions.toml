@@ -1,6 +1,6 @@
 [versions]
 agp = "8.8.1"
-androidlibrary = "v0.5.0-alpha"
+androidlibrary = "v0.5.1-alpha"
 kotlin = "1.9.24"
 coreKtx = "1.12.0"
 junit = "4.13.2"
@@ -25,5 +25,4 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-maven-publish = {id = "maven-publish"}
 
