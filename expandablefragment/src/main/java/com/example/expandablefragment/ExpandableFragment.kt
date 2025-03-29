@@ -24,23 +24,24 @@ open class ExpandableFragment
 
     private lateinit var textNameCategories: TextView
     private lateinit var iconCategories: ImageView
+
     private lateinit var iconControl: ImageView
     private lateinit var fragmentContainer: FrameLayout
 
-    open var nameText : String = ""
-        set(value) {
-            field = value
-            textNameCategories.text = value
-        }
+    protected open var expandableNameTittle : String = "Categories Title"
 
-    open var iconResId : Int = R.drawable.baseline_image_not_supported_24
-        set(value) {
-            field = value
-            iconCategories.setImageResource(value)
-        }
+    protected open var iconResId : Int = R.drawable.baseline_image_not_supported_24
 
     init {
         initExpandableFragment()
+
+        attrs?.let {
+            val typedArray = context.obtainStyledAttributes(it, R.styleable.ExpandableFragment, 0, 0)
+            setTittle(typedArray.getString(R.styleable.ExpandableFragment_tittle_categories) ?: "Categories Title")
+            setIconCategories(typedArray.getResourceId(R.styleable.ExpandableFragment_icon_categories, R.drawable.baseline_image_not_supported_24))
+            typedArray.recycle()
+
+        }
     }
 
     private fun initExpandableFragment(){
@@ -71,27 +72,31 @@ open class ExpandableFragment
         }
     }
 
+    fun setTittle(tittle: String){
+        expandableNameTittle = tittle
+        textNameCategories.text = tittle
+    }
+
+    fun setIconCategories(iconCategoriesResId: Int){
+        iconResId = iconCategoriesResId
+        iconCategories.setImageResource(iconResId)
+    }
+
     protected fun expandFragment(){
-        Log.i(tag, "Expanding fragment")
         fragmentContainer.visibility = VISIBLE
         isExpanded = false
     }
     protected fun reduceFragment(){
-        Log.i(tag, "Collapse fragment")
         isExpanded = true
         fragmentContainer.visibility = GONE
     }
 
     protected fun loadFragment() {
-        Log.i(tag, "Loading fragment: ${fragment?.toString()}")
-
         if (fragment != null) {
             val fragmentManager = (context as AppCompatActivity).supportFragmentManager
             fragmentManager.beginTransaction().apply {
                 add(fragmentContainer.id, fragment!!)
-                commit().apply {
-                    Log.i(tag, "Loaded fragment: ${fragment?.toString()}")
-                }
+                commit()
             }
         }
     }

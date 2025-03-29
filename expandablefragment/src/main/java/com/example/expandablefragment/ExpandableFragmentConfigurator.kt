@@ -7,8 +7,7 @@ import android.util.Log
 open class ExpandableFragmentConfigurator
 @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : ConfigurableExpandableFragment(context, attrs, defStyleAttr) {
     private val tag = ExpandableFragmentConfigurator::class.java.simpleName
-    override var nameText: String = "ExpandableFragmentConfigurator"
-
+    override var expandableNameTittle: String = "Configurator Categories Title"
 
     fun saveConfiguration(){
         Log.i(tag, "Saving configuration")
